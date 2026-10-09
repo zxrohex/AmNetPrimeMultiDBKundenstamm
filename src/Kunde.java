@@ -1,3 +1,4 @@
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Kunde {
@@ -7,12 +8,16 @@ public class Kunde {
 	private Date geburtsdatum;
 	private String strasse;
 	private int plz;
+	private String ort;
 	private Date kundeSeit;
 	private String geschlecht;
 	private String familienstand;
 	private int aboTyp;
 	
-	public Kunde(int kundenId, String vorname, String nachname, Date geburtsdatum, String strasse, int plz, Date kundeSeit, String geschlecht, String familienstand, int aboTyp) {
+	public Kunde() {
+	}
+	
+	public Kunde(int kundenId, String vorname, String nachname, Date geburtsdatum, String strasse, int plz, String ort, Date kundeSeit, String geschlecht, String familienstand, int aboTyp) {
 		this.kundenId = kundenId;
 		
 		this.vorname = vorname;
@@ -25,6 +30,8 @@ public class Kunde {
 		
 		this.plz = plz;
 		
+		this.ort = ort;
+		
 		this.kundeSeit = kundeSeit;
 		
 		this.geschlecht = geschlecht;
@@ -33,6 +40,7 @@ public class Kunde {
 		
 		this.aboTyp = aboTyp;
 	}
+
 	
 	public int getKundenId() {
 		return this.kundenId;
@@ -58,6 +66,10 @@ public class Kunde {
 		return this.plz;
 	}
 	
+	public String getOrt() {
+		return this.ort;
+	}
+	
 	public Date getKundeSeit() {
 		return this.kundeSeit;
 	}
@@ -74,8 +86,52 @@ public class Kunde {
 		return this.aboTyp;
 	}
 	
+	public void setKundenId(int kundenId) {
+		this.kundenId = kundenId;
+	}
+	
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
+	}
+	
+	public void setNachname(String nachname) {
+	    this.nachname = nachname;
+	}
+	
+	public void setGeburtsdatum(String geburtsdatum) {
+		 this.geburtsdatum = java.sql.Date.valueOf(geburtsdatum);
+	}
+	
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
+	
+	public void setPlz(int plz) {
+		this.plz = plz;
+	}
+	
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+	
+	public void setKundeSeit(String kundeSeit) {
+		this.kundeSeit = java.sql.Date.valueOf(kundeSeit);
+	}
+	
+	public void setGeschlecht(String geschlecht) {
+		this.geschlecht = geschlecht;
+	}
+	
+	public void setFamilienstand(String familienstand) {
+		this.familienstand = familienstand;
+	}
+	
+	public void setAboTyp(int aboTyp) {
+		this.aboTyp = aboTyp;
+	}
+	
 	@Override
 	public String toString() {
-		return String.format("%s %s (%d)", this.vorname, this.nachname, this.kundenId);
+		return String.format("%s %s (%d); %d %s; %s", this.vorname, this.nachname, this.kundenId, this.plz, this.ort, this.geburtsdatum);
 	}
 }
